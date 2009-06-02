@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<CONFIG>
+  <Compiler Value="/_/programming/fpc/fpc.2.2.4/compiler/ppcx64" Date="1239566352"/>
+  <Params Value=" -MObjFPC -Scgi -O1 -gl -vewnhi -l -Fi/_/programming/serial/src/ -Fu/_/programming/serial/lib/synaser/source/ -Fu/_/programming/serial/src/ -Fu. -FE/_/programming/serial/src/ -oserial_boot serial_boot.lpr"/>
+</CONFIG>
