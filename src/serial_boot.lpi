@@ -7,7 +7,7 @@
       <TargetFileExt Value=""/>
       <Icon Value="0"/>
       <UseXPManifest Value="True"/>
-      <ActiveEditorIndexAtStart Value="1"/>
+      <ActiveEditorIndexAtStart Value="0"/>
     </General>
     <VersionInfo>
       <ProjectVersion Value=""/>
@@ -23,44 +23,134 @@
     <RunParams>
       <local>
         <FormatVersion Value="1"/>
-        <LaunchingApplication PathPlusParams="/usr/X11R6/bin/xterm -T 'Lazarus Run Output' -e $(LazarusDir)/tools/runwait.sh $(TargetCmdLine)"/>
+        <LaunchingApplication PathPlusParams="/usr/bin/xterm -T 'Lazarus Run Output' -e $(LazarusDir)/tools/runwait.sh $(TargetCmdLine)"/>
+        <Display Use="True"/>
       </local>
     </RunParams>
-    <Units Count="3">
+    <Units Count="4">
       <Unit0>
         <Filename Value="serial_boot.lpr"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="serial_boot"/>
-        <CursorPos X="40" Y="10"/>
-        <TopLine Value="1"/>
+        <CursorPos X="36" Y="120"/>
+        <TopLine Value="90"/>
         <EditorIndex Value="0"/>
-        <UsageCount Value="20"/>
+        <UsageCount Value="22"/>
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
         <Filename Value="../reference/Main.pas"/>
         <UnitName Value="Main"/>
-        <CursorPos X="13" Y="126"/>
-        <TopLine Value="89"/>
-        <EditorIndex Value="2"/>
-        <UsageCount Value="10"/>
+        <CursorPos X="23" Y="514"/>
+        <TopLine Value="482"/>
+        <EditorIndex Value="3"/>
+        <UsageCount Value="11"/>
         <Loaded Value="True"/>
       </Unit1>
       <Unit2>
         <Filename Value="../lib/synaser/source/synaser.pas"/>
         <UnitName Value="synaser"/>
-        <CursorPos X="1" Y="72"/>
-        <TopLine Value="45"/>
-        <EditorIndex Value="1"/>
-        <UsageCount Value="10"/>
+        <CursorPos X="8" Y="208"/>
+        <TopLine Value="182"/>
+        <EditorIndex Value="2"/>
+        <UsageCount Value="11"/>
         <Loaded Value="True"/>
       </Unit2>
+      <Unit3>
+        <Filename Value="../../fpc/fpc.2.2.4/packages/fcl-base/src/custapp.pp"/>
+        <UnitName Value="CustApp"/>
+        <CursorPos X="14" Y="58"/>
+        <TopLine Value="36"/>
+        <EditorIndex Value="1"/>
+        <UsageCount Value="11"/>
+        <Loaded Value="True"/>
+      </Unit3>
     </Units>
-    <JumpHistory Count="1" HistoryIndex="0">
+    <JumpHistory Count="21" HistoryIndex="20">
       <Position1>
         <Filename Value="serial_boot.lpr"/>
         <Caret Line="10" Column="40" TopLine="1"/>
       </Position1>
+      <Position2>
+        <Filename Value="serial_boot.lpr"/>
+        <Caret Line="51" Column="47" TopLine="32"/>
+      </Position2>
+      <Position3>
+        <Filename Value="serial_boot.lpr"/>
+        <Caret Line="18" Column="23" TopLine="1"/>
+      </Position3>
+      <Position4>
+        <Filename Value="serial_boot.lpr"/>
+        <Caret Line="52" Column="12" TopLine="30"/>
+      </Position4>
+      <Position5>
+        <Filename Value="serial_boot.lpr"/>
+        <Caret Line="19" Column="28" TopLine="1"/>
+      </Position5>
+      <Position6>
+        <Filename Value="serial_boot.lpr"/>
+        <Caret Line="21" Column="54" TopLine="21"/>
+      </Position6>
+      <Position7>
+        <Filename Value="serial_boot.lpr"/>
+        <Caret Line="101" Column="1" TopLine="69"/>
+      </Position7>
+      <Position8>
+        <Filename Value="serial_boot.lpr"/>
+        <Caret Line="105" Column="5" TopLine="61"/>
+      </Position8>
+      <Position9>
+        <Filename Value="serial_boot.lpr"/>
+        <Caret Line="102" Column="1" TopLine="69"/>
+      </Position9>
+      <Position10>
+        <Filename Value="serial_boot.lpr"/>
+        <Caret Line="30" Column="64" TopLine="1"/>
+      </Position10>
+      <Position11>
+        <Filename Value="serial_boot.lpr"/>
+        <Caret Line="74" Column="24" TopLine="47"/>
+      </Position11>
+      <Position12>
+        <Filename Value="serial_boot.lpr"/>
+        <Caret Line="5" Column="16" TopLine="1"/>
+      </Position12>
+      <Position13>
+        <Filename Value="serial_boot.lpr"/>
+        <Caret Line="27" Column="25" TopLine="16"/>
+      </Position13>
+      <Position14>
+        <Filename Value="serial_boot.lpr"/>
+        <Caret Line="89" Column="11" TopLine="67"/>
+      </Position14>
+      <Position15>
+        <Filename Value="serial_boot.lpr"/>
+        <Caret Line="67" Column="30" TopLine="45"/>
+      </Position15>
+      <Position16>
+        <Filename Value="serial_boot.lpr"/>
+        <Caret Line="79" Column="5" TopLine="58"/>
+      </Position16>
+      <Position17>
+        <Filename Value="serial_boot.lpr"/>
+        <Caret Line="34" Column="12" TopLine="13"/>
+      </Position17>
+      <Position18>
+        <Filename Value="serial_boot.lpr"/>
+        <Caret Line="75" Column="9" TopLine="53"/>
+      </Position18>
+      <Position19>
+        <Filename Value="serial_boot.lpr"/>
+        <Caret Line="83" Column="9" TopLine="61"/>
+      </Position19>
+      <Position20>
+        <Filename Value="serial_boot.lpr"/>
+        <Caret Line="89" Column="20" TopLine="67"/>
+      </Position20>
+      <Position21>
+        <Filename Value="serial_boot.lpr"/>
+        <Caret Line="82" Column="13" TopLine="67"/>
+      </Position21>
     </JumpHistory>
   </ProjectOptions>
   <CompilerOptions>

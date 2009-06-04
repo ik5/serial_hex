@@ -31,7 +31,7 @@ type
     constructor Create(TheOwner: TComponent); override;
     destructor Destroy; override;
     procedure WriteHelp; virtual;
-  property
+  published
     property ComPort  : String     read FComPort  write FComPort;
     property FileName : TFilename  read FFileName write FFileName;
     property Speed    : Cardinal   read FSpeed    write FSpeed;
@@ -72,16 +72,17 @@ begin
 
   FSpeed := DefaultSpeed;
 
-  if HashOption('s', 'speed') then
+  if HasOption('s', 'speed') then
     begin
       try
         FSpeed := StrToInt(GetOptionValue('s', 'speed'));
       except
         on E:Exception do
-          writeln(StdErr, 'Invalid Speed value: ', E.Message);
-
-        Terminate;
-        Exit;
+          begin
+            writeln(StdErr, 'Invalid Speed value: ', E.Message);
+            Terminate;
+            Exit;
+          end
       end;
     end;
 
