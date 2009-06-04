@@ -75,7 +75,7 @@ begin
   if HashOption('s', 'speed') then
     begin
       try
-        FSpeed := StrToInt();
+        FSpeed := StrToInt(GetOptionValue('s', 'speed'));
       except
         on E:Exception do
           writeln(StdErr, 'Invalid Speed value: ', E.Message);
@@ -83,6 +83,10 @@ begin
         Terminate;
         Exit;
       end;
+    end;
+
+  if HasOption('v', 'verbose') then
+    begin
 
     end;
 

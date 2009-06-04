@@ -85,10 +85,7 @@ begin
       end;
     end;
 
-  if HasOption('v', 'verbose') then
-    begin
-
-    end;
+  FVerbose := HasOption('v');
 
   if HasOption('h','help') or (not Pass) then
     begin
