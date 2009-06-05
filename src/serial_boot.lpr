@@ -164,14 +164,16 @@ end;
 procedure TSerialBoot.OpenCom ( const ACom : String ) ;
 begin
   CloseCom;
-
   FSerialConnection := TBlockSerial.Create;
+  FSerialConnection.Connect(ACom); // Connect to the port
   FSerialConnection.Config(FSpeed, // Speed
-                           8,      // Number of bits (8 - A full Byte)
+                           8,      // Number of bits to use (8 - A full Byte)
                            'N',    // parity (no parity)
                            1,      // Stop bits
-
+                           False,  // softflow off (I think)
+                           False   // hardflow off (I think)
                           );
+  FSerialConnection.Purge;         // Clean buffers
 end;
 
 var
