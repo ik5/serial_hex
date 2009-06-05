@@ -13,7 +13,9 @@ uses
   { you can add units after this }, synaser;
 
 const
-  DefaultSpeed = 19200;
+  DefaultSpeed  = 19200;
+  DefaultCOM    = 'COM1';
+  DefaultEeprom = 0;
 
 type
 
@@ -21,18 +23,26 @@ type
 
   TSerialBoot = class(TCustomApplication)
   private
-    FComPort  : String;
-    FFileName : TFilename;
-    FSpeed    : Cardinal;
-    FVerbose  : Boolean;
+    FComPort          : String;
+    FFileName         : TFilename;
+    FSpeed            : Cardinal;
+    FVerbose          : Boolean;
+    FEeprom           : integer;
+    FSerialConnection : TBlockSerial;
   protected
     procedure DoRun; override;
   public
     constructor Create(TheOwner: TComponent); override;
     destructor Destroy; override;
     procedure WriteHelp; virtual;
+    function SetMandatoryParams : Boolean; virtual;
+    procedure SetSeconderyParams; virtual;
+
+    procedure OpenCom(const ACom : String); virtual;
+    procedure CloseCom; virtual;
   published
     property ComPort  : String     read FComPort  write FComPort;
+    property Eeprom   : integer    read FEeprom   write FEeprom;
     property FileName : TFilename  read FFileName write FFileName;
     property Speed    : Cardinal   read FSpeed    write FSpeed;
     property Verbose  : Boolean    read FVerbose  write FVerbose;
@@ -43,7 +53,6 @@ type
 procedure TSerialBoot.DoRun;
 var
   ErrorMsg : String;
-  Pass     : Boolean;
 
 begin
   // quick check parameters
@@ -54,41 +63,15 @@ begin
     Exit;
   end;
 
-  Pass := False;
-
   // parse parameters
 
-  if HasOption('c', 'com') then
-    begin
-      FComPort := GetOptionValue('c', 'com');
-      Pass := True;
-    end;
+  FComPort := DefaultCOM;
+  FSpeed   := DefaultSpeed;
+  FEeprom  := DefaultEeprom;
 
-  if HasOption('f', 'file') then
-    begin
-      FFileName := GetOptionValue('f', 'file');
-      Pass := True;
-    end;
+  SetSeconderyParams;
 
-  FSpeed := DefaultSpeed;
-
-  if HasOption('s', 'speed') then
-    begin
-      try
-        FSpeed := StrToInt(GetOptionValue('s', 'speed'));
-      except
-        on E:Exception do
-          begin
-            writeln(StdErr, 'Invalid Speed value: ', E.Message);
-            Terminate;
-            Exit;
-          end
-      end;
-    end;
-
-  FVerbose := HasOption('v');
-
-  if HasOption('h','help') or (not Pass) then
+  if HasOption('h','help') or (not SetMandatoryParams) then
     begin
       WriteHelp;
       Terminate;
@@ -118,6 +101,77 @@ procedure TSerialBoot.WriteHelp;
 begin
   { add your help code here }
   writeln('Usage: ',ExeName,' -h');
+end;
+
+function TSerialBoot.SetMandatoryParams : Boolean;
+begin
+  Result := False;
+
+  if HasOption('f', 'file') then
+    begin
+      FFileName := GetOptionValue('f', 'file');
+      Result := True;
+    end;
+end;
+
+procedure TSerialBoot.SetSeconderyParams;
+begin
+  if HasOption('c', 'com') then
+    begin
+      FComPort := GetOptionValue('c', 'com');
+    end;
+
+  if HasOption('s', 'speed') then
+    begin
+      try
+        FSpeed := StrToInt(GetOptionValue('s', 'speed'));
+      except
+        on E:Exception do
+          begin
+            writeln(StdErr, 'Invalid Speed value: ', E.Message);
+            Terminate;
+            Exit;
+          end
+      end;
+    end;
+
+  if HasOption('e', 'eprom') then
+    begin
+      try
+        FEeprom := StrToInt(GetOptionValue('e', 'eprom'));
+      except
+        on E:Exception do
+          begin
+            writeln(StdErr,'Invalid EPROM value : ', E.Message);
+            Terminate;
+            Exit;
+          end;
+      end;
+    end;
+
+  FVerbose := HasOption('v');
+end;
+
+procedure TSerialBoot.CloseCom;
+begin
+  if Assigned(FSerialConnection) then
+    begin
+      FSerialConnection.CloseSocket;
+      FreeAndNil(FSerialConnection);
+    end;
+end;
+
+procedure TSerialBoot.OpenCom ( const ACom : String ) ;
+begin
+  CloseCom;
+
+  FSerialConnection := TBlockSerial.Create;
+  FSerialConnection.Config(FSpeed, // Speed
+                           8,      // Number of bits (8 - A full Byte)
+                           'N',    // parity (no parity)
+                           1,      // Stop bits
+
+                          );
 end;
 
 var

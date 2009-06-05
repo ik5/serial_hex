@@ -32,8 +32,8 @@
         <Filename Value="serial_boot.lpr"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="serial_boot"/>
-        <CursorPos X="36" Y="120"/>
-        <TopLine Value="90"/>
+        <CursorPos X="21" Y="101"/>
+        <TopLine Value="78"/>
         <EditorIndex Value="0"/>
         <UsageCount Value="22"/>
         <Loaded Value="True"/>
@@ -41,8 +41,8 @@
       <Unit1>
         <Filename Value="../reference/Main.pas"/>
         <UnitName Value="Main"/>
-        <CursorPos X="23" Y="514"/>
-        <TopLine Value="482"/>
+        <CursorPos X="17" Y="515"/>
+        <TopLine Value="481"/>
         <EditorIndex Value="3"/>
         <UsageCount Value="11"/>
         <Loaded Value="True"/>
@@ -51,7 +51,7 @@
         <Filename Value="../lib/synaser/source/synaser.pas"/>
         <UnitName Value="synaser"/>
         <CursorPos X="8" Y="208"/>
-        <TopLine Value="182"/>
+        <TopLine Value="196"/>
         <EditorIndex Value="2"/>
         <UsageCount Value="11"/>
         <Loaded Value="True"/>
@@ -59,14 +59,14 @@
       <Unit3>
         <Filename Value="../../fpc/fpc.2.2.4/packages/fcl-base/src/custapp.pp"/>
         <UnitName Value="CustApp"/>
-        <CursorPos X="14" Y="58"/>
-        <TopLine Value="36"/>
+        <CursorPos X="14" Y="64"/>
+        <TopLine Value="46"/>
         <EditorIndex Value="1"/>
         <UsageCount Value="11"/>
         <Loaded Value="True"/>
       </Unit3>
     </Units>
-    <JumpHistory Count="21" HistoryIndex="20">
+    <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
         <Filename Value="serial_boot.lpr"/>
         <Caret Line="10" Column="40" TopLine="1"/>
@@ -151,6 +151,42 @@
         <Filename Value="serial_boot.lpr"/>
         <Caret Line="82" Column="13" TopLine="67"/>
       </Position21>
+      <Position22>
+        <Filename Value="../reference/Main.pas"/>
+        <Caret Line="602" Column="23" TopLine="586"/>
+      </Position22>
+      <Position23>
+        <Filename Value="../reference/Main.pas"/>
+        <Caret Line="630" Column="5" TopLine="586"/>
+      </Position23>
+      <Position24>
+        <Filename Value="../reference/Main.pas"/>
+        <Caret Line="96" Column="10" TopLine="79"/>
+      </Position24>
+      <Position25>
+        <Filename Value="../reference/Main.pas"/>
+        <Caret Line="343" Column="82" TopLine="321"/>
+      </Position25>
+      <Position26>
+        <Filename Value="../reference/Main.pas"/>
+        <Caret Line="503" Column="39" TopLine="481"/>
+      </Position26>
+      <Position27>
+        <Filename Value="../reference/Main.pas"/>
+        <Caret Line="504" Column="19" TopLine="481"/>
+      </Position27>
+      <Position28>
+        <Filename Value="serial_boot.lpr"/>
+        <Caret Line="107" Column="14" TopLine="90"/>
+      </Position28>
+      <Position29>
+        <Filename Value="serial_boot.lpr"/>
+        <Caret Line="28" Column="24" TopLine="1"/>
+      </Position29>
+      <Position30>
+        <Filename Value="serial_boot.lpr"/>
+        <Caret Line="100" Column="56" TopLine="73"/>
+      </Position30>
     </JumpHistory>
   </ProjectOptions>
   <CompilerOptions>
